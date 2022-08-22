@@ -28,6 +28,8 @@ $ yarn install
 $ yarn start
 ```
 
+---
+
 ### 프로젝트 구조
 
 ```bash
