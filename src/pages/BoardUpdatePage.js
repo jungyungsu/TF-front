@@ -8,13 +8,13 @@ function BoardUpdatePage(props) {
   const { id } = useParams();
   let navigate = useNavigate();
 
-  const initialTutorialState = {
+  const initialBoardState = {
     id: null,
     title: "",
     description: "",
     published: false,
   };
-  const [currentBoard, setCurrentBoard] = useState(initialTutorialState);
+  const [currentBoard, setCurrentBoard] = useState(initialBoardState);
   const [message, setMessage] = useState("");
 
   const getBoard = (id) => {
@@ -41,7 +41,7 @@ function BoardUpdatePage(props) {
     BoardService.update(currentBoard.id, currentBoard)
       .then((response) => {
         console.log(response.data);
-        setMessage("The tutorial was updated successfully!");
+        setMessage("The board was updated successfully!");
       })
       .catch((e) => {
         console.log(e);
@@ -83,7 +83,7 @@ function BoardUpdatePage(props) {
       <div>
         {currentBoard ? (
           <div className="edit-form">
-            <h4>Tutorial</h4>
+            <h4>Board</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -148,7 +148,7 @@ function BoardUpdatePage(props) {
         ) : (
           <div>
             <br />
-            <p>Please click on a Tutorial...</p>
+            <p>Please click on a Board...</p>
           </div>
         )}
       </div>

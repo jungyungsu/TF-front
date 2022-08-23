@@ -6,13 +6,14 @@ function Board() {
   const [boardList, setBoardList] = useState();
   const [currentBoard, setCurrentBoard] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     retrieveBoard();
   }, []);
 
-  const setActiveBoard = (tutorial, index) => {
-    setCurrentBoard(tutorial);
+  const setActiveBoard = (board, index) => {
+    setCurrentBoard(board);
     setCurrentIndex(index);
   };
 
@@ -39,15 +40,36 @@ function Board() {
     });
   };
 
+  const onChangeSearchTitle = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filterData = () => {
+    if (searchQuery === "") {
+      return boardList;
+    }
+    return boardList.filter((board) =>
+      board.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
   return (
     <div className="list row">
       <h1>Board page</h1>
+      <div className="col-md-8">
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by title"
+            onChange={onChangeSearchTitle}
+          />
+        </div>
+      </div>
       <div className="col-md-6">
-        {/* <h4>Tutorials List</h4> */}
-
         <ul className="list-group">
-          {boardList &&
-            boardList.map((board, index) => (
+          {filterData() &&
+            filterData().map((board, index) => (
               <li
                 className={
                   "list-group-item " + (index === currentIndex ? "active" : "")
@@ -68,7 +90,7 @@ function Board() {
       <div className="col-md-6">
         {currentBoard ? (
           <div>
-            <h4>Tutorial</h4>
+            <h4>Board</h4>
             <div>
               <label>
                 <strong>Title:</strong>
@@ -95,7 +117,7 @@ function Board() {
         ) : (
           <div>
             <br />
-            <p>Please click on a Tutorial...</p>
+            <p>Please click on a Board...</p>
           </div>
         )}
       </div>
