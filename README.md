@@ -80,25 +80,25 @@ $ yarn build:docker
 ```
 
 ```bash
-$ docker build -t hanjin-sm-frontend .
+$ docker build -t topas-sm-frontend .
 ```
 
 ```bash
 $ docker image ls
 REPOSITORY           TAG       IMAGE ID       CREATED          SIZE
-hanjin-sm-frontend   latest    3ada6712a521   8 seconds ago    136MB
+topas-sm-frontend   latest    3ada6712a521   8 seconds ago    136MB
 ```
 
 ### docker run
 
 ```bash
-$ docker run -p 80:80 --name frontend-react hanjin-sm-frontend
+$ docker run -p 80:80 --name frontend-react topas-sm-frontend
 ```
 
 ```bash
 $ docker ps
 CONTAINER ID   IMAGE                COMMAND                  CREATED          STATUS          PORTS                      NAMES
-9576a0e0bf5c   hanjin-sm-frontend   "/docker-entrypoint.…"   39 seconds ago   Up 37 seconds   0.0.0.0:80->80/tcp         frontend-react
+9576a0e0bf5c   topas-sm-frontend   "/docker-entrypoint.…"   39 seconds ago   Up 37 seconds   0.0.0.0:80->80/tcp         frontend-react
 ```
 
 ### docker stop & remove
@@ -112,5 +112,5 @@ $ docker rm frontend-react
 ```
 
 ```bash
-$ docker rmi hanjin-sm-frontend
+$ docker rmi topas-sm-frontend
 ```

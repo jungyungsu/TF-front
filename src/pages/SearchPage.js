@@ -3,8 +3,12 @@ import './SearchPage.css'
 
 function Search() {
   const [departure, setDeparture] = useState(''); // 출발지
-  const [departureOptions, setDepartureOptions] = useState(['제주', '부산']); // 출발지 옵션
+  const [departureOptions, setDepartureOptions] = useState(['인천', '김포', '제주','부산', '대구', '광주', '무안']); // 출발지 옵션
   const [departurePopupOpen, setDeparturePopupOpen] = useState(false); // 출발지 팝업 오픈 여부
+ 
+  const [destinationOptions, setDestinationOptions] = useState(['무안']); // 출발지 옵션
+  const [destinationPopupOpen, setDestinationPopupOpen] = useState(false); // 출발지 팝업 오픈 여부
+ 
   const [destination, setDestination] = useState(''); // 도착지
   const [departureDate, setDepartureDate] = useState(''); // 출발일
   const [returnDate, setReturnDate] = useState(''); // 귀국일
@@ -31,6 +35,18 @@ function Search() {
     setDeparturePopupOpen(false);
   };
 
+  // Destination 입력 필드 클릭 시 출발지 옵션 팝업 오픈
+  const handleDestinationClick = () => {
+    setDestinationPopupOpen(true);
+  };
+
+  // 출발지 옵션 선택 시 해당 값이 Departure에 입력되고 팝업이 닫힘
+  const handleDestinationOptionClick = (option) => {
+    setDestination(option);
+    setDestinationPopupOpen(false);
+  };
+  
+  
   return (
     <div className="travel-search">
       {/* 출발지, 도착지, 출발일, 귀국일, 여행자 수 입력 폼 */}
@@ -59,12 +75,26 @@ function Search() {
           type="text"
           placeholder="Destination"
           value={destination}
+          onClick={handleDestinationClick}
           onChange={(e) => setDestination(e.target.value)}
         />
+        {destinationPopupOpen && (
+          <div className="destination-popup">
+            {destinationOptions.map((option) => (
+              <div
+                key={option}
+                className="destination-option"
+                onClick={() => handleDestinationOptionClick(option)}
+              >
+                {option}
+              </div>
+            ))}
+          </div>
+        )}
         <input
           type="date"
           placeholder="Departure Date"
-          value={departureDate}s
+          value={departureDate}
           onChange={(e) => setDepartureDate(e.target.value)}
         />
         <input
@@ -108,7 +138,6 @@ function Search() {
         ))}
       </div>
     )}
-
     </div>
   );
 }
