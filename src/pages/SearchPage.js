@@ -53,7 +53,7 @@ function Search() {
       <div className="search-form">
         <input
           type="text"
-          placeholder="Departure"
+          placeholder="출발도시"
           value={departure}
           onClick={handleDepartureClick}
           onChange={(e) => setDeparture(e.target.value)}
@@ -73,7 +73,7 @@ function Search() {
         )}
         <input
           type="text"
-          placeholder="Destination"
+          placeholder="도착도시"
           value={destination}
           onClick={handleDestinationClick}
           onChange={(e) => setDestination(e.target.value)}
@@ -109,7 +109,7 @@ function Search() {
           value={travelers}
           onChange={(e) => setTravelers(e.target.value)}
         />
-        <button onClick={searchTravel}>Search</button>
+        <button onClick={searchTravel}>조회하기</button>
       </div>
       {/* 검색 결과 표시 */}
       {searchResults && (
