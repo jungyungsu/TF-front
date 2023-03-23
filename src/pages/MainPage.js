@@ -1,7 +1,19 @@
+// eslint-disable-next-line
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
+const StyledLink = styled(Link)`
+  color: #ffffff; 
+  text-decoration: none; 
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+`;
 
 const VideoBackground = styled.div`
   position: fixed;
@@ -63,6 +75,7 @@ const Text = styled.div`
 function Main() {
   const [typedText, setTypedText] = useState("");
   const [fullText, setFullText] = useState("설레이는 여행을 \n 떠나 볼까요?");
+  
 
   useEffect(() => {
     let timerId;
@@ -79,7 +92,7 @@ function Main() {
       <video src={process.env.PUBLIC_URL + '/videos/Travel_1.mp4'} autoPlay loop muted />
       <CenteredText>
         <Text>
-          <Link to="/board">🛫여행하기🛬</Link>
+          <StyledLink to="/Search">🛫즐겁게 🙆‍♂️🙆‍♀️ 여행하기🛬</StyledLink>
         </Text>
       </CenteredText>
       <Text style={{ position: 'absolute', bottom: '10%', left: '5%' }}>

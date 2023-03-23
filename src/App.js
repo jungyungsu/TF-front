@@ -1,5 +1,7 @@
 /* src/App.js */
 import React, { useEffect, useState } from 'react'
+import '@aws-amplify/ui-react/styles.css';
+import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Amplify } from 'aws-amplify'
@@ -9,9 +11,8 @@ import Main from "./pages/MainPage";
 import BoardWrite from "./pages/BoardWritePage";
 import BoardUpdatePage from "./pages/BoardUpdatePage";
 import Search from "./pages/SearchPage";
-import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
 import awsExports from "./aws-exports";
+//import "./style/amplify.css"
 
 
 
@@ -34,19 +35,19 @@ const App = ({ signOut, user }) => {
   return (
 
     <BrowserRouter>
-      <nav className="navbar navbar-expand navbar-dark">
-        <NavLink className="navbar-brand" to="/">Main.</NavLink>
-        <div className="navbar-nav mr-auto">
+      <nav className="navbar navbar-expand navbar-dark" style={{ display: 'flex', justifyContent: 'center' }}>
+        {/* <NavLink className="navbar-brand" to="/">Main.</NavLink> */}
+        <div className="navbar-nav" style={{ marginRight: "900px",fontSize: 18, color:'white'}}>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/board">Search</NavLink>
+            <NavLink className="nav-link" to="/Search">여행 알아보기</NavLink>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <NavLink className="nav-link" to="/board/write">BoardWrite</NavLink>
-          </li>
+          </li> */}
         </div>
-        <div className="navbar-nav ml-auto">
+        <div className="navbar-nav">
           <li className="nav-item">
-            <Button onClick={signOut} style={styles.button}>Sign out</Button>
+            <Button onClick={signOut} style={styles.button}>로그아웃</Button>
           </li>
         </div>
       </nav>
@@ -67,7 +68,7 @@ const styles = {
   input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
   todoName: { fontSize: 20, fontWeight: 'bold' },
   todoDescription: { marginBottom: 0 },
-  button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
+  button: { backgroundColor: 'none', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
 }
 
 export default withAuthenticator(App);
