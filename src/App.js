@@ -39,7 +39,7 @@ const App = ({ signOut, user }) => {
         {/* <NavLink className="navbar-brand" to="/">Main.</NavLink> */}
         <div className="navbar-nav" style={{ marginRight: "900px",fontSize: 18, color:'white'}}>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/Search">여행 알아보기</NavLink>
+            <NavLink className="nav-link" to="/Search">🛫여행 알아보기🛬</NavLink>
           </li>
           {/* <li className="nav-item">
             <NavLink className="nav-link" to="/board/write">BoardWrite</NavLink>
@@ -47,7 +47,7 @@ const App = ({ signOut, user }) => {
         </div>
         <div className="navbar-nav">
           <li className="nav-item">
-            <Button onClick={signOut} style={styles.button}>로그아웃</Button>
+            <Button onClick={signOut} style={styles.button}>🔒︎로그아웃</Button>
           </li>
         </div>
       </nav>

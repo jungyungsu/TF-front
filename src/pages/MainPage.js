@@ -92,7 +92,7 @@ function Main() {
       <video src={process.env.PUBLIC_URL + '/videos/Travel_1.mp4'} autoPlay loop muted />
       <CenteredText>
         <Text>
-          <StyledLink to="/Search">🛫즐겁게 🙆‍♂️🙆‍♀️ 여행하기🛬</StyledLink>
+          <StyledLink to="/Search">🙆‍♂️즐겁게 여행하기🙆‍♀️</StyledLink>
         </Text>
       </CenteredText>
       <Text style={{ position: 'absolute', bottom: '10%', left: '5%' }}>
