@@ -37,7 +37,7 @@ const App = ({ signOut, user }) => {
     <BrowserRouter>
       <nav className="navbar navbar-expand navbar-dark" style={{ display: 'flex', justifyContent: 'center' }}>
         {/* <NavLink className="navbar-brand" to="/">Main.</NavLink> */}
-        <div className="navbar-nav" style={{ marginRight: "900px",fontSize: 18, color:'white'}}>
+        <div className="navbar-nav" style={{ marginRight: "900px",fontSize: 23, color:'white'}}>
           <li className="nav-item">
             <NavLink className="nav-link" to="/Search">🛫여행 알아보기🛬</NavLink>
           </li>

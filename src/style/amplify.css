@@ -1,0 +1,22 @@
+.amplify-flex {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+      
+}
+.amplify-visually-hidden > legend{
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+}
+.amplify-button > button{
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+}
+.amplify-button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    white-space: nowrap;
+  }
+.data-amplify-authenticator{
+    background-color: gray;
+}
